@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "name": "GUTREND FUSION 150",
+      "url": "https://www.dns-shop.ru/product/80506ae6f2cc3332/pylesos-robot-gutrend-fusion-150-cernyj/?p=1&i=8&brand=brand-gutrend&f[g34]=53j8&brand=brand-gutrend&f[g34]=53j8&finalize=1",
+      "parser": {
+        "price": "default"
+      },
+      "selectors": {
+        "price": ".current-price-value"
+      }
+    }
+  ]
+}

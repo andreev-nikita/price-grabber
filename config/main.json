@@ -1,0 +1,4 @@
+{
+  "sources": "../config/sources.json",
+  "log": "../logs/main.log"
+}
