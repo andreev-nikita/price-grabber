@@ -1,6 +1,5 @@
-const sources = require('./sources');
-const getData = require('./getData');
+const grab = require('./grab');
 
-getData(sources.data[0]).then(res => {
+grab().then(res => {
   console.log(res);
 });

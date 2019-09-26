@@ -2,7 +2,7 @@ const { JSDOM } = require('jsdom');
 const getHtml = require('./getHtml');
 const parsers = require('./parsers');
 
-const getData = async ({ url, selectors, parser, name }) => {
+const getData = async ({ url, selectors, parser, name, shop, id }) => {
   // select parser function
   const parseContent = parsers[parser.price];
 
@@ -20,7 +20,7 @@ const getData = async ({ url, selectors, parser, name }) => {
   const now = new Date();
   const date = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}`;
 
-  return { name, price, date };
+  return { date, id, shop, name, price };
 };
 
 module.exports = getData;
