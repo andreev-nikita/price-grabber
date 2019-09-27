@@ -1,6 +1,7 @@
 const { JSDOM } = require('jsdom');
 const getHtml = require('./getHtml');
 const parsers = require('./parsers');
+const logger = require('./logger');
 
 const getData = async ({ url, selectors, parser, name, shop, id }) => {
   // select parser function
@@ -14,7 +15,16 @@ const getData = async ({ url, selectors, parser, name, shop, id }) => {
   const { document } = dom.window;
 
   // get price
-  const price = parseContent(document.querySelector(selectors.price).innerHTML);
+  let price;
+
+  try {
+    logger.info(`id ${id}: trying to find the price tag...`);
+    price = parseContent(document.querySelector(selectors.price).innerHTML);
+    logger.info(`id ${id}: price tag was successfully founded`);
+  } catch (err) {
+    logger.error(`id ${id}: error ocured when finding the price tag...`);
+    price = 'error';
+  }
 
   // get Date
   const now = new Date();

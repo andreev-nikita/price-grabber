@@ -10,9 +10,14 @@ const getHtml = url => {
   const options = { ...defaultOptions, url };
 
   return new Promise(res => {
-    request(options, (error, response, body) => {
-      res(body);
-    });
+    try {
+      request(options, (error, response, body) => {
+        // console.log(error);
+        res(body);
+      });
+    } catch (err) {
+      // console.log(err);
+    }
   });
 };
 
