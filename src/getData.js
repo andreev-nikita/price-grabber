@@ -8,7 +8,7 @@ const getData = async ({ url, selectors, parser, name, shop, id }) => {
   const parseContent = parsers[parser.price];
 
   // make request
-  const html = await getHtml(url);
+  const html = await getHtml(url, id);
 
   // parse DOM
   const dom = new JSDOM(html);
@@ -18,11 +18,9 @@ const getData = async ({ url, selectors, parser, name, shop, id }) => {
   let price;
 
   try {
-    logger.info(`id ${id}: trying to find the price tag...`);
     price = parseContent(document.querySelector(selectors.price).innerHTML);
-    logger.info(`id ${id}: price tag was successfully founded`);
   } catch (err) {
-    logger.error(`id ${id}: error ocured when finding the price tag...`);
+    logger.error(`id ${id}: error occured when finding the price tag...`);
     price = 'error';
   }
 

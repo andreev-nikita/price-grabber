@@ -1,4 +1,12 @@
 {
   "sources": "../config/sources.json",
-  "log": "../logs/main.log"
+  "log": "../logs/main.log",
+  "attemptsCount": 10,
+  "requestOptions": {
+    "timeout": 60000,
+    "resolveWithFullResponse": true,
+    "headers": {
+      "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.75 Safari/537.36"
+    }
+  }
 }
